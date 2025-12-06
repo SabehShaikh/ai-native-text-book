@@ -1,0 +1,116 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.heroBanner {
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0a0e1a 0%, #141824 100%);
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 2rem;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.badges {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+}
+
+.badge {
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #00d4ff;
+}
+
+.whatYouWillLearn {
+  padding: 4rem 0;
+  background: var(--ifm-background-surface-color);
+}
+
+.whatYouWillLearn h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--ifm-heading-color);
+}
+
+.learningIntro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+  font-size: 1.125rem;
+  color: var(--ifm-font-color-base);
+}
+
+.learningList {
+  max-width: 800px;
+  margin: 0 auto;
+  list-style: none;
+  padding: 0;
+}
+
+.learningList li {
+  padding: 0.75rem 0 0.75rem 2.5rem;
+  position: relative;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+.learningList li:before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #00d4ff;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .badges {
+    gap: 0.5rem;
+  }
+
+  .badge {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .whatYouWillLearn {
+    padding: 2rem 1rem;
+  }
+
+  .learningList li {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .heroBanner h1 {
+    font-size: 1.75rem;
+  }
+
+  .heroBanner p {
+    font-size: 1rem;
+  }
+}

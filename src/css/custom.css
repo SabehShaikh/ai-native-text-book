@@ -1,0 +1,122 @@
+/**
+ * Physical AI Textbook - Custom Styles
+ * Dark theme with Panaversity branding
+ */
+
+:root {
+  /* Primary Colors (Panaversity Cyan) */
+  --ifm-color-primary: #00d4ff;
+  --ifm-color-primary-dark: #00b8e6;
+  --ifm-color-primary-darker: #00a8d6;
+  --ifm-color-primary-darkest: #0088b0;
+  --ifm-color-primary-light: #1ae0ff;
+  --ifm-color-primary-lighter: #2ee6ff;
+  --ifm-color-primary-lightest: #5cefff;
+
+  /* Dark Background Colors */
+  --ifm-background-color: #0a0e1a;
+  --ifm-background-surface-color: #141824;
+
+  /* Text Colors */
+  --ifm-font-color-base: #e8eaed;
+  --ifm-heading-color: #ffffff;
+
+  /* Code Colors */
+  --ifm-code-background: #1e2430;
+  --ifm-code-color: #00d4ff;
+
+  /* Typography */
+  --ifm-font-size-base: 16px;
+  --ifm-line-height-base: 1.65;
+  --ifm-font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+  --ifm-font-family-monospace: 'Fira Code', 'JetBrains Mono', 'Consolas', monospace;
+
+  /* Spacing */
+  --ifm-spacing-horizontal: 1.5rem;
+  --ifm-spacing-vertical: 1.5rem;
+}
+
+/* Heading Sizes */
+h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.375rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Code Blocks */
+code {
+  background-color: var(--ifm-code-background);
+  color: var(--ifm-code-color);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+/* Sidebar Customization */
+.menu__link {
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.menu__link:hover {
+  background-color: rgba(0, 212, 255, 0.1);
+}
+
+.menu__link--active {
+  background-color: rgba(0, 212, 255, 0.2);
+  border-left: 3px solid var(--ifm-color-primary);
+}
+
+/* Card Styling for Landing Page */
+.card {
+  background: var(--ifm-background-surface-color);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 212, 255, 0.2);
+}
+
+/* Focus Indicators for Accessibility */
+:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+/* Image Styling */
+img {
+  border-radius: 4px;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ensure dark theme is default */
+html[data-theme='dark'] {
+  --ifm-background-color: #0a0e1a;
+  --ifm-background-surface-color: #141824;
+  --ifm-font-color-base: #e8eaed;
+  --ifm-heading-color: #ffffff;
+}

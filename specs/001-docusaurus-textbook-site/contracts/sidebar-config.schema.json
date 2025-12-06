@@ -1,0 +1,186 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/sidebar-config.schema.json",
+  "title": "Sidebar Configuration Schema",
+  "description": "Contract for sidebars.js defining navigation structure for Physical AI Textbook",
+  "type": "object",
+  "required": ["tutorialSidebar"],
+  "properties": {
+    "tutorialSidebar": {
+      "type": "array",
+      "description": "Main sidebar navigation items",
+      "minItems": 1,
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/definitions/docItem"
+          },
+          {
+            "$ref": "#/definitions/categoryItem"
+          },
+          {
+            "$ref": "#/definitions/linkItem"
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "docItem": {
+      "type": "object",
+      "description": "Single document link",
+      "required": ["type", "id"],
+      "properties": {
+        "type": {
+          "const": "doc"
+        },
+        "id": {
+          "type": "string",
+          "description": "Document ID (path without .md)",
+          "pattern": "^[a-z0-9-/]+$",
+          "example": "intro"
+        },
+        "label": {
+          "type": "string",
+          "description": "Display label (overrides doc title)",
+          "maxLength": 100
+        }
+      }
+    },
+    "categoryItem": {
+      "type": "object",
+      "description": "Collapsible category grouping documents",
+      "required": ["type", "label", "items"],
+      "properties": {
+        "type": {
+          "const": "category"
+        },
+        "label": {
+          "type": "string",
+          "description": "Category display label",
+          "minLength": 1,
+          "maxLength": 100,
+          "example": "Module 1: Introduction to Physical AI & ROS 2"
+        },
+        "collapsible": {
+          "type": "boolean",
+          "default": true,
+          "description": "Allow collapse/expand"
+        },
+        "collapsed": {
+          "type": "boolean",
+          "default": true,
+          "description": "Default collapsed state"
+        },
+        "items": {
+          "type": "array",
+          "description": "Nested sidebar items",
+          "minItems": 1,
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/docItem"
+              },
+              {
+                "$ref": "#/definitions/categoryItem"
+              },
+              {
+                "type": "string",
+                "description": "Document ID string (shorthand)",
+                "pattern": "^[a-z0-9-/]+$"
+              }
+            ]
+          }
+        },
+        "link": {
+          "type": "object",
+          "description": "Optional category page link",
+          "properties": {
+            "type": {
+              "enum": ["doc", "generated-index"]
+            },
+            "id": {
+              "type": "string",
+              "description": "Document ID if type is 'doc'"
+            },
+            "title": {
+              "type": "string",
+              "description": "Generated index title if type is 'generated-index'"
+            },
+            "description": {
+              "type": "string",
+              "description": "Generated index description"
+            }
+          }
+        }
+      }
+    },
+    "linkItem": {
+      "type": "object",
+      "description": "External link item",
+      "required": ["type", "label", "href"],
+      "properties": {
+        "type": {
+          "const": "link"
+        },
+        "label": {
+          "type": "string",
+          "description": "Link display label",
+          "maxLength": 100
+        },
+        "href": {
+          "type": "string",
+          "format": "uri",
+          "description": "External URL",
+          "pattern": "^https?://.*"
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "tutorialSidebar": [
+        {
+          "type": "doc",
+          "id": "intro",
+          "label": "Course Overview"
+        },
+        {
+          "type": "category",
+          "label": "Module 1: Introduction to Physical AI & ROS 2",
+          "collapsible": true,
+          "collapsed": false,
+          "items": [
+            {
+              "type": "category",
+              "label": "Week 1: Physical AI Foundations",
+              "items": [
+                "module-1-physical-ai/week-1/index",
+                "module-1-physical-ai/week-1/foundations",
+                "module-1-physical-ai/week-1/applications"
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Week 2: Embodied Intelligence",
+              "items": ["module-1-physical-ai/week-2/index"]
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Module 2: Robot Simulation",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "type": "category",
+              "label": "Week 6: Gazebo Simulation",
+              "items": ["module-2-simulation/week-6/index"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

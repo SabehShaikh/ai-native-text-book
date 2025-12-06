@@ -1,0 +1,312 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/docusaurus-config.schema.json",
+  "title": "Docusaurus Configuration Schema",
+  "description": "Contract for docusaurus.config.js for Physical AI Textbook",
+  "type": "object",
+  "required": ["title", "tagline", "url", "baseUrl", "organizationName", "projectName", "themeConfig", "presets"],
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Site title displayed in header and metadata",
+      "minLength": 1,
+      "maxLength": 100,
+      "example": "Physical AI & Humanoid Robotics Textbook"
+    },
+    "tagline": {
+      "type": "string",
+      "description": "Site tagline/subtitle",
+      "minLength": 1,
+      "maxLength": 200,
+      "example": "A comprehensive 13-week course covering Physical AI, ROS 2, and VLA systems"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Production URL where site is deployed",
+      "pattern": "^https://.*",
+      "example": "https://yourusername.github.io"
+    },
+    "baseUrl": {
+      "type": "string",
+      "description": "Base URL path (repository name for GitHub Pages)",
+      "pattern": "^/.*/$",
+      "example": "/ai-native-text-book/"
+    },
+    "organizationName": {
+      "type": "string",
+      "description": "GitHub organization or username",
+      "example": "panaversity"
+    },
+    "projectName": {
+      "type": "string",
+      "description": "GitHub repository name",
+      "example": "ai-native-text-book"
+    },
+    "onBrokenLinks": {
+      "type": "string",
+      "enum": ["throw", "warn", "ignore"],
+      "default": "throw",
+      "description": "Behavior when broken links are detected"
+    },
+    "onBrokenMarkdownLinks": {
+      "type": "string",
+      "enum": ["throw", "warn", "ignore"],
+      "default": "warn",
+      "description": "Behavior when broken markdown links are detected"
+    },
+    "favicon": {
+      "type": "string",
+      "description": "Path to favicon file",
+      "example": "img/favicon.ico"
+    },
+    "themeConfig": {
+      "type": "object",
+      "description": "Theme-specific configuration",
+      "required": ["navbar", "footer", "prism"],
+      "properties": {
+        "navbar": {
+          "type": "object",
+          "required": ["title", "logo", "items"],
+          "properties": {
+            "title": {
+              "type": "string",
+              "description": "Title in navbar",
+              "example": "Physical AI Textbook"
+            },
+            "logo": {
+              "type": "object",
+              "required": ["alt", "src"],
+              "properties": {
+                "alt": {
+                  "type": "string",
+                  "description": "Logo alt text"
+                },
+                "src": {
+                  "type": "string",
+                  "description": "Path to logo image",
+                  "example": "img/logo.svg"
+                }
+              }
+            },
+            "items": {
+              "type": "array",
+              "description": "Navbar menu items",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "required": ["type", "position"],
+                    "properties": {
+                      "type": {
+                        "const": "docSidebar"
+                      },
+                      "sidebarId": {
+                        "type": "string"
+                      },
+                      "position": {
+                        "enum": ["left", "right"]
+                      },
+                      "label": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "required": ["href", "label", "position"],
+                    "properties": {
+                      "href": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "label": {
+                        "type": "string"
+                      },
+                      "position": {
+                        "enum": ["left", "right"]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "footer": {
+          "type": "object",
+          "required": ["style", "copyright"],
+          "properties": {
+            "style": {
+              "enum": ["dark", "light"],
+              "description": "Footer theme"
+            },
+            "links": {
+              "type": "array",
+              "description": "Footer link columns",
+              "items": {
+                "type": "object",
+                "required": ["title", "items"],
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": ["label"],
+                      "properties": {
+                        "label": {
+                          "type": "string"
+                        },
+                        "href": {
+                          "type": "string"
+                        },
+                        "to": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "copyright": {
+              "type": "string",
+              "description": "Copyright notice in footer",
+              "example": "Copyright © 2025 Panaversity. Licensed under CC-BY-4.0."
+            }
+          }
+        },
+        "prism": {
+          "type": "object",
+          "description": "Code syntax highlighting configuration",
+          "required": ["theme", "darkTheme"],
+          "properties": {
+            "theme": {
+              "type": "object",
+              "description": "Prism theme for light mode"
+            },
+            "darkTheme": {
+              "type": "object",
+              "description": "Prism theme for dark mode"
+            },
+            "additionalLanguages": {
+              "type": "array",
+              "description": "Additional language support beyond defaults",
+              "items": {
+                "type": "string",
+                "enum": ["python", "cpp", "yaml", "xml", "bash", "javascript", "typescript", "json"]
+              }
+            }
+          }
+        },
+        "colorMode": {
+          "type": "object",
+          "description": "Color mode (dark/light theme) settings",
+          "properties": {
+            "defaultMode": {
+              "enum": ["light", "dark"],
+              "default": "dark",
+              "description": "Default color mode"
+            },
+            "disableSwitch": {
+              "type": "boolean",
+              "default": false,
+              "description": "Disable theme toggle switch"
+            },
+            "respectPrefersColorScheme": {
+              "type": "boolean",
+              "default": false,
+              "description": "Respect user's OS color scheme preference"
+            }
+          }
+        }
+      }
+    },
+    "presets": {
+      "type": "array",
+      "description": "Docusaurus presets (bundles of plugins and themes)",
+      "minItems": 1,
+      "items": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 2,
+        "items": [
+          {
+            "type": "string",
+            "const": "@docusaurus/preset-classic"
+          },
+          {
+            "type": "object",
+            "required": ["docs"],
+            "properties": {
+              "docs": {
+                "type": "object",
+                "properties": {
+                  "sidebarPath": {
+                    "type": "string",
+                    "description": "Path to sidebar configuration",
+                    "example": "./sidebars.js"
+                  },
+                  "editUrl": {
+                    "type": "string",
+                    "description": "Base URL for edit links",
+                    "format": "uri"
+                  },
+                  "routeBasePath": {
+                    "type": "string",
+                    "description": "Base route for docs (use '/' for docs-only mode)",
+                    "default": "/"
+                  }
+                }
+              },
+              "blog": {
+                "oneOf": [
+                  {
+                    "type": "boolean",
+                    "const": false,
+                    "description": "Disable blog feature"
+                  },
+                  {
+                    "type": "object",
+                    "description": "Blog configuration"
+                  }
+                ]
+              },
+              "theme": {
+                "type": "object",
+                "properties": {
+                  "customCss": {
+                    "type": "string",
+                    "description": "Path to custom CSS file",
+                    "example": "./src/css/custom.css"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "plugins": {
+      "type": "array",
+      "description": "Additional Docusaurus plugins",
+      "items": {
+        "oneOf": [
+          {
+            "type": "string",
+            "description": "Plugin name"
+          },
+          {
+            "type": "array",
+            "description": "Plugin with configuration",
+            "minItems": 2,
+            "maxItems": 2
+          }
+        ]
+      }
+    }
+  }
+}
