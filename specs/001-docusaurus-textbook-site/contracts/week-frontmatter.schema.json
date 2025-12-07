@@ -1,0 +1,158 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/week-frontmatter.schema.json",
+  "title": "Week Content Frontmatter Schema",
+  "description": "Contract for YAML frontmatter in week MDX files",
+  "type": "object",
+  "required": ["id", "sidebar_position", "title", "description", "moduleId", "weekNumber"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique week identifier",
+      "pattern": "^week-(1[0-3]|[1-9])$",
+      "examples": ["week-1", "week-13"]
+    },
+    "sidebar_position": {
+      "type": "integer",
+      "description": "Order within parent category",
+      "minimum": 1,
+      "maximum": 13
+    },
+    "title": {
+      "type": "string",
+      "description": "Week display title",
+      "minLength": 5,
+      "maxLength": 100,
+      "pattern": "^Week (1[0-3]|[1-9]):",
+      "examples": ["Week 1: Physical AI Foundations", "Week 13: VLA Systems"]
+    },
+    "description": {
+      "type": "string",
+      "description": "Week summary for SEO and navigation",
+      "minLength": 20,
+      "maxLength": 200,
+      "examples": ["Introduction to embodied intelligence, sensor-actuator loops, and real-world applications"]
+    },
+    "moduleId": {
+      "type": "string",
+      "description": "Parent module identifier",
+      "enum": ["module-1-physical-ai", "module-2-simulation", "module-3-isaac", "module-4-humanoid-vla"]
+    },
+    "weekNumber": {
+      "type": "integer",
+      "description": "Sequential week number in course",
+      "minimum": 1,
+      "maximum": 13
+    },
+    "estimatedHours": {
+      "type": "integer",
+      "description": "Estimated study time in hours",
+      "minimum": 1,
+      "maximum": 20,
+      "default": 8
+    },
+    "tags": {
+      "type": "array",
+      "description": "Topic tags for search and categorization",
+      "minItems": 1,
+      "maxItems": 10,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9-]+$",
+        "examples": ["physical-ai", "ros2", "simulation", "isaac-sim", "vla"]
+      },
+      "uniqueItems": true
+    },
+    "lastReviewed": {
+      "type": "string",
+      "description": "Last content review date (ISO 8601)",
+      "format": "date",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "examples": ["2025-12-07"]
+    },
+    "prerequisites": {
+      "type": "array",
+      "description": "Previous weeks or external knowledge required",
+      "items": {
+        "type": "string",
+        "maxLength": 100
+      },
+      "maxItems": 5,
+      "examples": [["Week 1: Physical AI Foundations", "Basic Python knowledge"]]
+    },
+    "learningOutcomes": {
+      "type": "array",
+      "description": "High-level learning outcomes (distinct from objectives in content)",
+      "items": {
+        "type": "string",
+        "minLength": 10,
+        "maxLength": 200
+      },
+      "minItems": 2,
+      "maxItems": 5
+    },
+    "pagination_prev": {
+      "type": ["string", "null"],
+      "description": "Override previous page link (Docusaurus path)",
+      "pattern": "^[a-z0-9-/]+$",
+      "examples": ["module-1-physical-ai/week-1/index", null]
+    },
+    "pagination_next": {
+      "type": ["string", "null"],
+      "description": "Override next page link (Docusaurus path)",
+      "pattern": "^[a-z0-9-/]+$",
+      "examples": ["module-1-physical-ai/week-3/index", null]
+    },
+    "sidebar_label": {
+      "type": "string",
+      "description": "Override sidebar label (if different from title)",
+      "maxLength": 50
+    },
+    "hide_table_of_contents": {
+      "type": "boolean",
+      "description": "Hide right-hand table of contents",
+      "default": false
+    },
+    "keywords": {
+      "type": "array",
+      "description": "SEO keywords",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 20
+    }
+  },
+  "examples": [
+    {
+      "id": "week-1",
+      "sidebar_position": 1,
+      "title": "Week 1: Physical AI Foundations",
+      "description": "Introduction to embodied intelligence, sensor-actuator loops, and real-world applications of Physical AI systems",
+      "moduleId": "module-1-physical-ai",
+      "weekNumber": 1,
+      "estimatedHours": 8,
+      "tags": ["physical-ai", "embodied-intelligence", "foundations"],
+      "lastReviewed": "2025-12-07",
+      "prerequisites": ["Basic understanding of AI/ML concepts", "Python programming"],
+      "learningOutcomes": [
+        "Understand embodied intelligence and its role in robotics",
+        "Identify key components of Physical AI systems",
+        "Analyze real-world applications of Physical AI"
+      ]
+    },
+    {
+      "id": "week-13",
+      "sidebar_position": 13,
+      "title": "Week 13: Vision-Language-Action Systems",
+      "description": "Integrating vision, language models, and action planning for conversational robotics with GPT",
+      "moduleId": "module-4-humanoid-vla",
+      "weekNumber": 13,
+      "estimatedHours": 10,
+      "tags": ["vla", "vision-language-action", "gpt", "multimodal-ai"],
+      "lastReviewed": "2025-12-07",
+      "prerequisites": ["Week 11: Humanoid Kinematics", "Week 12: Bipedal Locomotion"],
+      "pagination_prev": "module-4-humanoid-vla/week-12/index",
+      "pagination_next": null
+    }
+  ]
+}

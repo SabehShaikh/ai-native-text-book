@@ -1,0 +1,23 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark background circle -->
+  <circle cx="100" cy="100" r="95" fill="#0a0e1a" stroke="#00d4ff" stroke-width="3"/>
+
+  <!-- Robot head shape -->
+  <rect x="60" y="60" width="80" height="70" rx="10" fill="#141824" stroke="#00d4ff" stroke-width="2"/>
+
+  <!-- Eyes -->
+  <circle cx="80" cy="85" r="8" fill="#00d4ff"/>
+  <circle cx="120" cy="85" r="8" fill="#00d4ff"/>
+
+  <!-- Antenna -->
+  <line x1="100" y1="60" x2="100" y2="40" stroke="#00d4ff" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="100" cy="35" r="5" fill="#00d4ff"/>
+
+  <!-- Mouth/interface line -->
+  <line x1="75" y1="110" x2="125" y2="110" stroke="#00d4ff" stroke-width="2" stroke-linecap="round"/>
+  <line x1="75" y1="115" x2="95" y2="115" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="105" y1="115" x2="125" y2="115" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- Bottom accent -->
+  <path d="M 70 140 Q 100 150 130 140" stroke="#00d4ff" stroke-width="2" fill="none"/>
+</svg>

@@ -1,0 +1,42 @@
+.summaryContainer {
+  background: var(--ifm-background-surface-color);
+  border-left: 4px solid #00d4ff;
+  border-radius: 4px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+
+.summaryContent {
+  margin-bottom: 1.5rem;
+}
+
+.summaryContent p:last-child {
+  margin-bottom: 0;
+}
+
+.nextWeekLink {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nextWeekButton {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 4px;
+  color: #00d4ff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.nextWeekButton:hover {
+  background: rgba(0, 212, 255, 0.2);
+  border-color: #00d4ff;
+  color: #00d4ff;
+  text-decoration: none;
+  transform: translateX(4px);
+}
