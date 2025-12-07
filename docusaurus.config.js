@@ -1,9 +1,12 @@
 // @ts-check
 // Note: type annotations allow type checking and IDE autocompletion
 
-const {themes} = require('prism-react-renderer');
+const { themes } = require('prism-react-renderer');
 const lightCodeTheme = themes.github;
 const darkCodeTheme = themes.vsDark;
+
+/** Determine if we are deploying to GitHub Pages */
+const isGithubPages = process.env.DOCUSAURUS_ENV === 'github';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -11,9 +14,10 @@ const config = {
   tagline: 'A comprehensive 13-week course covering Physical AI, ROS 2, robot simulation, and VLA systems',
   favicon: 'img/favicon.ico',
 
-  // GitHub Pages deployment config
-  url: 'https://sabehshaikh.github.io',
-  baseUrl: '/ai-native-text-book/',
+  // URL & baseUrl
+  url: 'https://sabehshaikh.github.io', // your GitHub Pages URL
+  baseUrl: isGithubPages ? '/ai-native-text-book/' : '/', // dynamic baseUrl for Vercel vs GitHub Pages
+
   organizationName: 'SabehShaikh',
   projectName: 'ai-native-text-book',
 
