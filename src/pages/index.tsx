@@ -20,7 +20,6 @@ function HomepageHeader() {
           <span className={styles.badge}>13 Weeks</span>
           <span className={styles.badge}>4 Modules</span>
           <span className={styles.badge}>Open Source</span>
-          <span className={styles.badge}>CC-BY-4.0</span>
         </div>
 
         {/* CTA Button */}

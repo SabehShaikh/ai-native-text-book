@@ -72,8 +72,6 @@ Each week follows a consistent structure:
 3. **Hands-On Practice**: Code examples are provided throughout - try them yourself
 4. **Additional Resources**: Links to official documentation and external resources are included
 
-## License
+---
 
-This content is licensed under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
-
-Copyright © 2025 Panaversity
+Built by Sabeh Shaikh © 2025

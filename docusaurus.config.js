@@ -12,9 +12,9 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // GitHub Pages deployment config
-  url: 'https://your-username.github.io',
+  url: 'https://sabehshaikh.github.io',
   baseUrl: '/ai-native-text-book/',
-  organizationName: 'your-org',
+  organizationName: 'SabehShaikh',
   projectName: 'ai-native-text-book',
 
   onBrokenLinks: 'throw',
@@ -33,7 +33,7 @@ const config = {
         docs: {
           routeBasePath: '/', // Docs-only mode
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/your-org/ai-native-text-book/edit/main/',
+          editUrl: 'https://github.com/SabehShaikh/ai-native-text-book/edit/main/',
         },
         blog: false, // Disable blog
         theme: {
@@ -79,7 +79,7 @@ const config = {
             label: 'Course',
           },
           {
-            href: 'https://github.com/your-org/ai-native-text-book',
+            href: 'https://github.com/SabehShaikh/ai-native-text-book',
             label: 'GitHub',
             position: 'right',
           },
@@ -115,16 +115,16 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/your-org/ai-native-text-book',
+                href: 'https://github.com/SabehShaikh/ai-native-text-book',
               },
               {
-                label: 'Panaversity',
-                href: 'https://panaversity.org',
+                label: 'LinkedIn',
+                href: 'https://www.linkedin.com/in/sabeh-shaikh/',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Panaversity. Licensed under CC-BY-4.0.`,
+        copyright: `Built by Sabeh Shaikh © ${new Date().getFullYear()}`,
       },
       prism: {
         theme: lightCodeTheme,
