@@ -15,7 +15,7 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // URL & baseUrl
-  url: 'https://sabehshaikh.github.io', // your GitHub Pages URL
+  url: isGithubPages ? 'https://sabehshaikh.github.io' : 'https://ai-native-text-book.vercel.app', // your GitHub Pages URL or Vercel URL
   baseUrl: isGithubPages ? '/ai-native-text-book/' : '/', // dynamic baseUrl for Vercel vs GitHub Pages
 
   organizationName: 'SabehShaikh',
